@@ -1,5 +1,7 @@
 package exception;
 
-public class globalException {
-
+public class GlobalException extends Exception{
+	public GlobalException(String msg) {
+		super(msg);
+	}
 }
