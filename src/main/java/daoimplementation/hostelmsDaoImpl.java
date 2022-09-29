@@ -2,17 +2,17 @@ package daoimplementation;
 
 import org.hibernate.Session;
 
-import com.hostelMS.config.HibernateUtil;
-import com.hostelMS.dao.hostelMSDao;
-import com.hostelMS.exception.GlobalException;
-import com.hostelMS.model.user;
+import config.hibernateUtil;
+import dao.hostelmsDao;
+import exception.GlobalException;
+import model.user;
 
-public class hostelMSDaoImpl implements hostelMSDao {
+public class hostelmsDaoImpl implements hostelmsDao {
 
 	@Override
 	public int registration(user u1) throws GlobalException {
 		
-		try(Session ses=HibernateUtil.getSession())
+		try(Session ses=hibernateUtil.getSession())
 		{
 			
 			String username=u1.getUserName();

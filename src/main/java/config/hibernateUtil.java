@@ -7,8 +7,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
-import com.hostelMS.model.room;
-import com.hostelMS.model.user;
+import model.room;
+import model.user;
 
 public class hibernateUtil {
 

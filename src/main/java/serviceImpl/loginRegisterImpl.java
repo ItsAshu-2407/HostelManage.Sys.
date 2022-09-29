@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 
 import Simple.hostelMS.App;
-import dao.hostelMSDao;
-import daoimplementation.hostelMSDaoImpl;
+import dao.hostelmsDao;
+import daoimplementation.hostelmsDaoImpl;
 import exception.GlobalException;
 import model.user;
 import service.loginRegister;
@@ -15,7 +15,7 @@ import service.loginRegister;
 public class loginRegisterImpl implements loginRegister {
 	static Logger log=Logger.getLogger(App.class);
 	static Scanner bs=new Scanner(System.in);
-	static hostelMSDao dao=new hostelMSDaoImpl();
+	static hostelmsDao dao = new hostelmsDaoImpl();
 	
 	//registration method
 	public void register() throws GlobalException{

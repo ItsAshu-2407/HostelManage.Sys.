@@ -7,10 +7,7 @@ import exception.GlobalException;
 import service.loginRegister;
 import serviceImpl.loginRegisterImpl;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
 	static Logger log=Logger.getLogger(App.class);
