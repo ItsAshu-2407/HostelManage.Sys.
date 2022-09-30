@@ -37,7 +37,7 @@ public class hostelmsDaoImpl implements hostelmsDao {
 	@Override
 	public user login(String username, String password) throws GlobalException {
 		
-		try(Session ses=HibernateUtil.getSession()){
+		try(Session ses=hibernateUtil.getSession()){
 			ses.beginTransaction();
 			
 			user u2=null;

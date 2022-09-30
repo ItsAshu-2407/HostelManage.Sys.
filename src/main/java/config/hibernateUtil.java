@@ -24,7 +24,7 @@ public class hibernateUtil {
 				Properties pro=new Properties();
 				
 			pro.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");	
-			pro.put(Environment.URL,"jdbc:mysql://localhost:3306/hostelMS");	
+			pro.put(Environment.URL,"jdbc:mysql://localhost:3306/anudip");	
 			pro.put(Environment.USER, "root");
 			pro.put(Environment.PASS,"905906");
 			pro.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
