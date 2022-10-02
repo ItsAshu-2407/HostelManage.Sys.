@@ -26,7 +26,7 @@ public class hibernateUtil {
 			pro.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");	
 			pro.put(Environment.URL,"jdbc:mysql://localhost:3306/anudip");	
 			pro.put(Environment.USER, "root");
-			pro.put(Environment.PASS,"905906");
+			pro.put(Environment.PASS,"ashu@2407");
 			pro.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 			pro.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 			pro.put(Environment.SHOW_SQL, "false");

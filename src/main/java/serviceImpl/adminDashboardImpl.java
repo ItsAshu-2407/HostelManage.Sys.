@@ -15,7 +15,7 @@ import service.adminDashboard;
 public class adminDashboardImpl implements adminDashboard {
 	
 	static Logger log=Logger.getLogger(adminDashboardImpl.class);
-	static Scanner bs=new Scanner(System.in);
+	static Scanner sc=new Scanner(System.in);
 	static adminDashboard adl=new adminDashboardImpl();
 	static adminDao dao=new adminDaoImpl();
 	@Override
@@ -29,7 +29,7 @@ log.info("\t\t\t-------------------welcome to Admin dashboard----------------");
 			
 		log.info("\n\tPress 1 for View Rooms\t\t\tPress 2 for View Users\n\tPress 3 for Create Rooms\t\tPress 4 for Allot room to user\n\tPress 5 for view user in a room\t\tPress 6 for view user profile\n\tPress 7 for Add Due Amount\t\tPress 8 for Pay Due Amount\n\tPress 9 for delete user");
 		
-		op=bs.nextInt();
+		op=sc.nextInt();
 		switch(op) {
 		
 		case 1->adl.viewRooms();
@@ -66,11 +66,11 @@ log.info("\t\t\t-------------------welcome to Admin dashboard----------------");
 	public void createRoom() throws GlobalException {
 		// TODO Auto-generated method stub
 		log.info("Enter Room Id");
-		int id=bs.nextInt();
+		int id=sc.nextInt();
 		log.info("Enter Room Name");
-		String rname=bs.next();
+		String rname=sc.next();
 		log.info("Enter Room Type");
-		String rtype=bs.next();
+		String rtype=sc.next();
 		room r1=new room();
 		r1.setRoomId(id);
 		r1.setRoomName(rname);
@@ -89,12 +89,12 @@ log.info("\t\t\t-------------------welcome to Admin dashboard----------------");
 	public void allotRoom() throws GlobalException {
 		// TODO Auto-generated method stub
 		log.info("Enter user Id");
-		int uid=bs.nextInt();
+		int uid=sc.nextInt();
 		log.info("Enter room Id");
-		int rId=bs.nextInt();
+		int rId=sc.nextInt();
 		int st=dao.allotRoom(uid, rId);
 		if(st==1) {
-			log.info("Room alloted successfully");
+			log.info("Congratulations Room alloted successfully");
 		}
 		else {
 			throw new GlobalException("Something went wrong");
@@ -104,7 +104,7 @@ log.info("\t\t\t-------------------welcome to Admin dashboard----------------");
 	public void deleteUser() throws GlobalException {
 		// TODO Auto-generated method stub
 		log.info("Enter user Id to delete");
-		int uid=bs.nextInt();
+		int uid=sc.nextInt();
 		int st=dao.deleteUser(uid);
 		if(st==1) {
 			log.info("deleted!...");
@@ -117,7 +117,7 @@ log.info("\t\t\t-------------------welcome to Admin dashboard----------------");
 	public void userInARoom() {
 		// TODO Auto-generated method stub
 		log.info("Enter Room Id");
-		int rid=bs.nextInt();
+		int rid=sc.nextInt();
 	List<user> userList=	dao.userInARoom(rid);
 	log.info("\nUser Id\t\tUserName\t\tuser Phone");
 	for(user u1:userList)
@@ -127,9 +127,9 @@ log.info("\t\t\t-------------------welcome to Admin dashboard----------------");
 	public void addDueAmount() throws GlobalException {
 		// TODO Auto-generated method stub
 		log.info("Enter Amount to add");
-		int amount=bs.nextInt();
+		int amount=sc.nextInt();
 		log.info("Enter user Id");
-		int uid=bs.nextInt();
+		int uid=sc.nextInt();
 		int st=dao.addDueAmount(uid, amount);
 		if(st==1) {
 			log.info("amount added");
@@ -142,9 +142,9 @@ log.info("\t\t\t-------------------welcome to Admin dashboard----------------");
 	public void paidDueAmount() throws GlobalException {
 		// TODO Auto-generated method stub
 		log.info("Enter Amount to pay");
-		int amount=bs.nextInt();
+		int amount=sc.nextInt();
 		log.info("Enter user Id");
-		int uid=bs.nextInt();
+		int uid=sc.nextInt();
 		int st=dao.paidDueAmount(uid, amount);
 		if(st==1) {
 			log.info("amount added");
@@ -157,7 +157,7 @@ log.info("\t\t\t-------------------welcome to Admin dashboard----------------");
 	public void viewuserprofile() throws GlobalException {
 		// TODO Auto-generated method stub
 		log.info("Enter user id");
-		int uid=bs.nextInt();
+		int uid=sc.nextInt();
 		user u1=dao.viewuserprofile(uid);
 		log.info(u1);
 	}

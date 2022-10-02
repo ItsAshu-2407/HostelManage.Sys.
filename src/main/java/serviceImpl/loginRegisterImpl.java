@@ -10,24 +10,26 @@ import dao.hostelmsDao;
 import daoimplementation.hostelmsDaoImpl;
 import exception.GlobalException;
 import model.user;
+import service.adminDashboard;
 import service.loginRegister;
+import service.userDashboard;
 
 public class loginRegisterImpl implements loginRegister {
 	static Logger log=Logger.getLogger(App.class);
-	static Scanner bs=new Scanner(System.in);
+	static Scanner sc=new Scanner(System.in);
 	static hostelmsDao dao = new hostelmsDaoImpl();
 	
 	//registration method
 	public void register() throws GlobalException{
 		log.info("welcome to registeration");
 		log.info("Enter Username");
-		String uname=bs.next();
+		String uname=sc.next();
 		log.info("Create Password");
-		String upwd=bs.next();
+		String upwd=sc.next();
 		log.info("Enter Phone number");
-		String uphone=bs.next();
+		String uphone=sc.next();
 		log.info("Enter Address");
-		String uaddress=bs.next();
+		String uaddress=sc.next();
 		
 		user u1=new user();
 		u1.setUserName(uname);
@@ -57,14 +59,22 @@ public class loginRegisterImpl implements loginRegister {
 
 	public void login()throws GlobalException {
 		log.info("welcome to Login");
-		
 		log.info("Enter username");
-		String username=bs.next();
+		String username=sc.next();
 		log.info("Enter password");
-		String password=bs.next();
+		String password=sc.next();
 		user u1=dao.login(username, password);
-		log.info("Hello"+u1.getUserName()+"Login Success");
-	
+		log.info("Hello "+u1.getUserName()+" Login Success");
+		userDashboard udl = new userDashboardImpl();
+		adminDashboard adl=new adminDashboardImpl();
+		//if userrole is student userdashboard will open
+		//if userrole is admin admindashboard will open
+		if(u1.getUserRole().equals("student")) {
+			udl.dashboard(u1.getUserId());
+		}
+		else if(u1.getUserRole().equals("admin")) {
+			adl.dashboard();
+		}
 	}
 
 }
